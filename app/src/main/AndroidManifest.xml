@@ -22,4 +22,7 @@
 		</activity>
 	</application>
 
+	<!-- register our glide config so it will decode images in ARGB_8888-->
+	<meta-data android:name="com.alpargabos.tuda.config.GlideConfiguration" android:value="GlideModule"/>
+
 </manifest>
