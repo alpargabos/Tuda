@@ -45,6 +45,9 @@ public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesVi
 		Glide.with(context)
 			.load(impDate.getThumbnail())
 			.diskCacheStrategy(DiskCacheStrategy.ALL)
+			// TODO: 12/30/16 add placeholder + not found
+			//			.placeholder(R.drawable.placeholder)
+			//			.error(R.drawable.imagenotfound)
 			.into(holder.thumbnail);
 
 		holder.thumbnail.setOnClickListener(new View.OnClickListener() {
