@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "38512537187",
+    "firebase_url": "https://tuda-b157f.firebaseio.com",
+    "project_id": "tuda-b157f",
+    "storage_bucket": "tuda-b157f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38512537187:android:29d29a1df81e7e8e",
+        "android_client_info": {
+          "package_name": "com.alpargabos.tuda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38512537187-cgvk9hs3hhjjtb8gfctg7kipp7jsqbd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alpargabos.tuda",
+            "certificate_hash": "2B55A05B0F65F49B54C097EC909ADEC32D6B1ACB"
+          }
+        },
+        {
+          "client_id": "38512537187-h8hvv109dq2it4kgb0u9bdv2vk244jod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsWs98M35nGk_2uJMxNt4qHpVQL_cTzsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38512537187-h8hvv109dq2it4kgb0u9bdv2vk244jod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
