@@ -13,6 +13,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import net.danlew.android.joda.DateUtils;
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static net.danlew.android.joda.DateUtils.FORMAT_SHOW_DATE;
@@ -22,11 +23,16 @@ import static net.danlew.android.joda.DateUtils.FORMAT_SHOW_YEAR;
 public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesViewHolder> {
 
 	private Context context;
-	private List<ImportantDates> importantDates;
+	private List<ImportantDates> importantDates = new ArrayList<>();
 
-	public ImportantDatesAdapter(Context context, List<ImportantDates> importantDates) {
+	public ImportantDatesAdapter(Context context) {
 		this.context = context;
-		this.importantDates = importantDates;
+	}
+
+	public void setList(List<ImportantDates> dates) {
+		// TODO: 1/1/17 do differenciate to have nice animations
+		importantDates = dates;
+		this.notifyDataSetChanged();
 	}
 
 	@Override
@@ -40,7 +46,7 @@ public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesVi
 	public void onBindViewHolder(final ImportantDatesViewHolder holder, int position) {
 		ImportantDates impDate = importantDates.get(position);
 		holder.title.setText(impDate.getTitle());
-		holder.time.setText(DateUtils.formatDateTime(context, new DateTime(impDate.getDateUtc()), FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_TIME));
+		holder.time.setText(DateUtils.formatDateTime(context, new DateTime(impDate.getDate()), FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_TIME));
 
 		Glide.with(context)
 			.load(impDate.getThumbnail())

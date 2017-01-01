@@ -4,16 +4,18 @@ package com.alpargabos.tuda.dates.model;
 public class ImportantDates {
 	String id;
 	String title;
-	Long dateUtc;
-	String bgUrl;
-	Long reminderUtc;
+	Long date;
+	String thumbnail;
 
-	public ImportantDates(String id, String title, Long dateUtc, String bgUrl, Long reminderUtc) {
+	public ImportantDates() {
+		//required
+	}
+
+	public ImportantDates(String id, String title, Long dateUtc, String thumbnail) {
 		this.id = id;
 		this.title = title;
-		this.dateUtc = dateUtc;
-		this.bgUrl = bgUrl;
-		this.reminderUtc = reminderUtc;
+		this.date = dateUtc;
+		this.thumbnail = thumbnail;
 	}
 
 	public String getId() {
@@ -24,15 +26,11 @@ public class ImportantDates {
 		return title;
 	}
 
-	public Long getDateUtc() {
-		return dateUtc;
+	public Long getDate() {
+		return date;
 	}
 
 	public String getThumbnail() {
-		return bgUrl;
-	}
-
-	public Long getReminderUtc() {
-		return reminderUtc;
+		return thumbnail;
 	}
 }
