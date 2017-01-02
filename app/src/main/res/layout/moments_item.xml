@@ -3,8 +3,8 @@
 				xmlns:tools="http://schemas.android.com/tools"
 				android:orientation="vertical"
 				android:layout_margin="2dp"
-				android:layout_width="128dp"
-				android:layout_height="128dp">
+				android:layout_width="@dimen/moments_item_size"
+				android:layout_height="@dimen/moments_item_size">
 	<ImageView
 			android:id="@+id/moments_thumbnail"
 			android:layout_width="match_parent"

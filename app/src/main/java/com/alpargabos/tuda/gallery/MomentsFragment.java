@@ -3,7 +3,6 @@ package com.alpargabos.tuda.gallery;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,12 +33,8 @@ public class MomentsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_dates, container, false);
+		View view = inflater.inflate(R.layout.autofit_recycler_view, container, false);
 		ButterKnife.bind(this, view);
-
-		// TODO: 1/2/17 spannable griedview? as much view as fit on the screen
-		GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
-		recyclerView.setLayoutManager(layoutManager);
 
 		adapter = new MomentsAdapter(getContext());
 		recyclerView.setAdapter(adapter);
