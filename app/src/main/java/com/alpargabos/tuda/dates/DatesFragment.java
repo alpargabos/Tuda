@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.alpargabos.tuda.R;
 import com.alpargabos.tuda.dates.model.ImportantDates;
 import com.google.firebase.database.DataSnapshot;
@@ -73,5 +74,10 @@ public class DatesFragment extends Fragment {
 			}
 		};
 		myRef.addValueEventListener(eventListener);
+	}
+
+	@OnClick(R.id.fab)
+	public void onClickOnFab(View view) {
+		Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 	}
 }

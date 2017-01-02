@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.alpargabos.tuda.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +34,7 @@ public class MomentsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.autofit_recycler_view, container, false);
+		View view = inflater.inflate(R.layout.fragment_moments, container, false);
 		ButterKnife.bind(this, view);
 
 		adapter = new MomentsAdapter(getContext());
@@ -68,5 +69,10 @@ public class MomentsFragment extends Fragment {
 			}
 		};
 		myRef.addValueEventListener(eventListener);
+	}
+
+	@OnClick(R.id.fab)
+	public void onClickOnFab(View view) {
+		Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 	}
 }
