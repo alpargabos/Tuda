@@ -16,12 +16,12 @@ import org.joda.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesViewHolder> {
+public class DatesAdapter extends RecyclerView.Adapter<DatesViewHolder> {
 
 	private Context context;
 	private List<ImportantDates> importantDates = new ArrayList<>();
 
-	public ImportantDatesAdapter(Context context) {
+	public DatesAdapter(Context context) {
 		this.context = context;
 	}
 
@@ -32,14 +32,14 @@ public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesVi
 	}
 
 	@Override
-	public ImportantDatesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+	public DatesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_important_date, parent, false);
 
-		return new ImportantDatesViewHolder(itemView);
+		return new DatesViewHolder(itemView);
 	}
 
 	@Override
-	public void onBindViewHolder(final ImportantDatesViewHolder holder, int position) {
+	public void onBindViewHolder(final DatesViewHolder holder, int position) {
 		ImportantDates impDate = importantDates.get(position);
 		holder.title.setText(impDate.getTitle());
 

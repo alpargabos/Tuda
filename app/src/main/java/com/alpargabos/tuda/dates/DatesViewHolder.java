@@ -8,7 +8,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.alpargabos.tuda.R;
 
-public class ImportantDatesViewHolder extends RecyclerView.ViewHolder {
+public class DatesViewHolder extends RecyclerView.ViewHolder {
 	@BindView(R.id.thumbnail) ImageView thumbnail;
 	@BindView(R.id.title) TextView title;
 	@BindView(R.id.years) TextView years;
@@ -17,7 +17,7 @@ public class ImportantDatesViewHolder extends RecyclerView.ViewHolder {
 	@BindView(R.id.hours) TextView hours;
 	@BindView(R.id.minutes) TextView minutes;
 
-	public ImportantDatesViewHolder(View view) {
+	public DatesViewHolder(View view) {
 		super(view);
 		ButterKnife.bind(this, view);
 	}

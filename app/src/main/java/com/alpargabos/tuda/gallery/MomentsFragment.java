@@ -1,9 +1,9 @@
-package com.alpargabos.tuda.dates;
+package com.alpargabos.tuda.gallery;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.alpargabos.tuda.R;
-import com.alpargabos.tuda.dates.model.ImportantDates;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,13 +23,13 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DatesFragment extends Fragment {
+public class MomentsFragment extends Fragment {
 
 	@BindView(R.id.recycler_view) RecyclerView recyclerView;
-	DatesAdapter adapter;
+	MomentsAdapter adapter;
 
-	public static DatesFragment newInstance() {
-		return new DatesFragment();
+	public static MomentsFragment newInstance() {
+		return new MomentsFragment();
 	}
 
 	@Override
@@ -38,10 +37,11 @@ public class DatesFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_dates, container, false);
 		ButterKnife.bind(this, view);
 
-		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-		recyclerView.setLayoutManager(linearLayoutManager);
+		// TODO: 1/2/17 spannable griedview? as much view as fit on the screen
+		GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+		recyclerView.setLayoutManager(layoutManager);
 
-		adapter = new DatesAdapter(getContext());
+		adapter = new MomentsAdapter(getContext());
 		recyclerView.setAdapter(adapter);
 
 		return view;
@@ -50,26 +50,26 @@ public class DatesFragment extends Fragment {
 	@Override
 	public void onStart() {
 		super.onStart();
-		requestImportantDates();
+		requestData();
 	}
 
-	private void requestImportantDates() {
+	private void requestData() {
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference myRef = database.getReference("dates/1a2b3c");
+		DatabaseReference myRef = database.getReference("moments/1a2b3c");
 		ValueEventListener eventListener = new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
-				List<ImportantDates> importantDates = new ArrayList<>();
+				List<ImportantMoment> moments = new ArrayList<>();
 				// Get Post object and use the values to update the UI
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					importantDates.add(snapshot.getValue(ImportantDates.class));
+					moments.add(snapshot.getValue(ImportantMoment.class));
 				}
-				adapter.setList(importantDates);
+				adapter.setList(moments);
 			}
 
 			@Override
 			public void onCancelled(DatabaseError databaseError) {
-				Snackbar.make(DatesFragment.this.getView(), "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+				Snackbar.make(MomentsFragment.this.getView(), "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 			}
 		};
 		myRef.addValueEventListener(eventListener);
