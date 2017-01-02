@@ -4,8 +4,9 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import com.alpargabos.tuda.connect.ConnectFragment;
 import com.alpargabos.tuda.dates.DatesFragment;
-import com.alpargabos.tuda.gallery.MomentsFragment;
+import com.alpargabos.tuda.moments.MomentsFragment;
 
 public class TudaFragmentPagerAdapter extends FragmentPagerAdapter {
 	final int PAGE_COUNT = 3;
@@ -26,10 +27,12 @@ public class TudaFragmentPagerAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int position) {
 		switch (position) {
 			case 0:
-				// TODO: 12/30/16 cache fragments
+				// TODO: 12/30/16 cache fragments if needed
 				return DatesFragment.newInstance();
 			case 1:
 				return MomentsFragment.newInstance();
+			case 2:
+				return ConnectFragment.newInstance();
 			default:
 				return DatesFragment.newInstance();
 		}

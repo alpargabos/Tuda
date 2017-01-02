@@ -1,4 +1,4 @@
-package com.alpargabos.tuda.gallery;
+package com.alpargabos.tuda.moments;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;

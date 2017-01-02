@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+
+	<ImageView
+			android:id="@+id/connect_heart_ic"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_margin="40dp"
+			android:layout_centerInParent="true"
+			android:src="@drawable/ic_heart"
+	/>
+
+	<com.alpargabos.tuda.connect.CircleImageView
+			android:id="@+id/connect_avatar_thumbnail"
+			app:civ_border_width="4dp"
+			app:civ_border_color="#E2574C"
+			android:layout_width="120dp"
+			android:layout_height="120dp"
+			android:layout_margin="40dp"
+			android:layout_centerInParent="true"
+			tools:src="@drawable/ic_play_circle_filled_white_24dp"
+	/>
+
+	<TextView
+			android:id="@+id/connect_better_time_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="20dp"
+			android:gravity="center_horizontal"
+			android:textColor="@color/colorPrimaryDark"
+			android:textSize="18dp"
+			android:text="There is no better time to say"
+	/>
+	<TextView
+			android:id="@+id/connect_love_you_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/connect_better_time_text"
+			android:gravity="center_horizontal"
+			android:textColor="@android:color/holo_red_dark"
+			android:textSize="24dp"
+			android:text="I love you!"
+	/>
+	<TextView
+			android:id="@+id/connect_now_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/connect_love_you_text"
+			android:gravity="center_horizontal"
+			android:textColor="@color/colorPrimaryDark"
+			android:textSize="18dp"
+			android:text="than NOW"
+	/>
+
+	<ImageButton
+			android:id="@+id/connect_call_button"
+			android:layout_width="72dp"
+			android:layout_height="72dp"
+			android:layout_margin="40dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentBottom="true"
+			android:background="@drawable/ic_call_black_24dp"
+			android:elevation="8dp"
+			android:visibility="gone"
+	/>
+	<ImageButton
+			android:id="@+id/connect_sms_button"
+			android:layout_width="72dp"
+			android:layout_height="72dp"
+			android:layout_margin="40dp"
+			android:layout_alignParentEnd="true"
+			android:layout_alignParentBottom="true"
+			android:background="@drawable/ic_chat_black_24dp"
+			android:elevation="8dp"
+			android:visibility="gone"
+	/>
+
+</RelativeLayout>

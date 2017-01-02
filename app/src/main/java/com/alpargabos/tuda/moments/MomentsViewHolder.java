@@ -1,4 +1,4 @@
-package com.alpargabos.tuda.gallery;
+package com.alpargabos.tuda.moments;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

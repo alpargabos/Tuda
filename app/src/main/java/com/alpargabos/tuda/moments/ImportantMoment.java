@@ -1,4 +1,4 @@
-package com.alpargabos.tuda.gallery;
+package com.alpargabos.tuda.moments;
 
 public class ImportantMoment {
 	public static final int IMAGE = 1;
