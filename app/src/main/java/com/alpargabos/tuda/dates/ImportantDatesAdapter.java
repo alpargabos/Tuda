@@ -10,15 +10,11 @@ import com.alpargabos.tuda.R;
 import com.alpargabos.tuda.dates.model.ImportantDates;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import net.danlew.android.joda.DateUtils;
 import org.joda.time.DateTime;
+import org.joda.time.Period;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static net.danlew.android.joda.DateUtils.FORMAT_SHOW_DATE;
-import static net.danlew.android.joda.DateUtils.FORMAT_SHOW_TIME;
-import static net.danlew.android.joda.DateUtils.FORMAT_SHOW_YEAR;
 
 public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesViewHolder> {
 
@@ -46,7 +42,17 @@ public class ImportantDatesAdapter extends RecyclerView.Adapter<ImportantDatesVi
 	public void onBindViewHolder(final ImportantDatesViewHolder holder, int position) {
 		ImportantDates impDate = importantDates.get(position);
 		holder.title.setText(impDate.getTitle());
-		holder.time.setText(DateUtils.formatDateTime(context, new DateTime(impDate.getDate()), FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_TIME));
+
+		DateTime cardDate = new DateTime(impDate.getDate());
+		DateTime now = new DateTime();
+
+		Period period = new Period(cardDate, now);
+
+		holder.years.setText(String.valueOf(period.getYears()));
+		holder.months.setText(String.valueOf(period.getMonths()));
+		holder.days.setText(String.valueOf(period.getDays()));
+		holder.hours.setText(String.valueOf(period.getHours()));
+		holder.minutes.setText(String.valueOf(period.getMinutes()));
 
 		Glide.with(context)
 			.load(impDate.getThumbnail())
