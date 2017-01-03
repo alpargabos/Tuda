@@ -40,8 +40,8 @@
 							android:id="@+id/toolbar_avatar_thumbnail_first"
 							app:civ_border_width="1dp"
 							app:civ_border_color="@color/colorPrimary"
-							android:layout_width="30dp"
-							android:layout_height="30dp"
+							android:layout_width="45dp"
+							android:layout_height="45dp"
 							android:layout_marginStart="4dp"
 							tools:src="@drawable/ic_play_circle_filled_white_24dp"
 					/>
@@ -49,16 +49,16 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:textSize="18sp"
-							android:layout_marginStart="4dp"
-							android:layout_marginEnd="4dp"
+							android:layout_marginStart="8dp"
+							android:layout_marginEnd="8dp"
 							android:text="&amp;"
 					/>
 					<com.alpargabos.tuda.connect.CircleImageView
 							android:id="@+id/toolbar_avatar_thumbnail_second"
 							app:civ_border_width="1dp"
 							app:civ_border_color="@color/colorPrimary"
-							android:layout_width="30dp"
-							android:layout_height="30dp"
+							android:layout_width="45dp"
+							android:layout_height="45dp"
 							android:layout_marginEnd="4dp"
 							tools:src="@drawable/ic_play_circle_filled_white_24dp"
 					/>
