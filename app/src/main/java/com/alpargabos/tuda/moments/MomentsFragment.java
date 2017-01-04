@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -55,10 +54,12 @@ public class MomentsFragment extends Fragment {
 		ValueEventListener eventListener = new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
-				List<ImportantMoment> moments = new ArrayList<>();
+				ArrayList<ImportantMoment> moments = new ArrayList<>();
 				// Get Post object and use the values to update the UI
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					moments.add(snapshot.getValue(ImportantMoment.class));
+					ImportantMoment moment = snapshot.getValue(ImportantMoment.class);
+					moment.setKey(snapshot.getKey());
+					moments.add(moment);
 				}
 				adapter.setList(moments);
 			}

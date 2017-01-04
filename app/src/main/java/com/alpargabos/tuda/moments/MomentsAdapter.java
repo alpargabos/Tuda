@@ -15,18 +15,19 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MomentsAdapter extends RecyclerView.Adapter<MomentsViewHolder> {
 
+	public static final String IMPORTANT_MOMENTS = "IMPORTANT_MOMENTS";
+	public static final String IMPORTANT_MOMENT_POSITION = "IMPORTANT_MOMENT_POSITION";
 	private Context context;
-	private List<ImportantMoment> importantMoments = new ArrayList<>();
+	private ArrayList<ImportantMoment> importantMoments = new ArrayList<>();
 
 	public MomentsAdapter(Context context) {
 		this.context = context;
 	}
 
-	public void setList(List<ImportantMoment> moments) {
+	public void setList(ArrayList<ImportantMoment> moments) {
 		// TODO: 1/1/17 do differenciate to have nice animations
 		importantMoments = moments;
 		this.notifyDataSetChanged();
@@ -66,7 +67,8 @@ public class MomentsAdapter extends RecyclerView.Adapter<MomentsViewHolder> {
 			@Override
 			public void onClick(View view) {
 				Intent intent = new Intent(context, MomentsDetailActivity.class);
-				intent.putExtra("pos", position);
+				intent.putParcelableArrayListExtra(IMPORTANT_MOMENTS, importantMoments);
+				intent.putExtra(IMPORTANT_MOMENT_POSITION, position);
 				context.startActivity(intent);
 			}
 		});
