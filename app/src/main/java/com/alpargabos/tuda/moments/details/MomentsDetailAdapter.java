@@ -18,7 +18,7 @@ public class MomentsDetailAdapter extends FragmentStatePagerAdapter {
 
 	@Override
 	public Fragment getItem(int position) {
-		return PlaceholderFragment.newInstance(importantMoments.get(position));
+		return MomentsDetailFragment.newInstance(importantMoments.get(position));
 	}
 
 	@Override

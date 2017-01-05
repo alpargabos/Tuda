@@ -1,9 +1,12 @@
 package com.alpargabos.tuda.moments.details;
 
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,18 +20,22 @@ import static com.alpargabos.tuda.moments.MomentsAdapter.retriveVideoFrameFromVi
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class MomentsDetailFragment extends Fragment implements View.OnTouchListener {
 	/**
 	 * The fragment argument representing the section number for this
 	 * fragment.
 	 */
 	private static final String ARG_IMPORTANT_MOMENT = "section_number";
+	private ScaleGestureDetector mScaleGestureDetector;
+	// TODO: 1/4/17 bind with butterknife
+	ImageView imageView;
+	private Matrix mMatrix = new Matrix();
 
-	public PlaceholderFragment() {
+	public MomentsDetailFragment() {
 	}
 
-	public static PlaceholderFragment newInstance(ImportantMoment moment) {
-		PlaceholderFragment fragment = new PlaceholderFragment();
+	public static MomentsDetailFragment newInstance(ImportantMoment moment) {
+		MomentsDetailFragment fragment = new MomentsDetailFragment();
 		Bundle args = new Bundle();
 		args.putParcelable(ARG_IMPORTANT_MOMENT, moment);
 		fragment.setArguments(args);
@@ -39,7 +46,7 @@ public class PlaceholderFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_moments_detail, container, false);
 		ImportantMoment moment = getArguments().getParcelable(ARG_IMPORTANT_MOMENT);
-		ImageView imageView = (ImageView) rootView.findViewById(R.id.moments_detail_image);
+		imageView = (ImageView) rootView.findViewById(R.id.moments_detail_image);
 		if (moment.getType() == ImportantMoment.VIDEO) {
 			//				holder.videoMark.setVisibility(View.VISIBLE);
 			try {
@@ -59,6 +66,29 @@ public class PlaceholderFragment extends Fragment {
 				//			.error(R.drawable.imagenotfound)
 				.into(imageView);
 		}
+
+		mScaleGestureDetector = new ScaleGestureDetector(getContext(), new ScaleListener());
+		imageView.setOnTouchListener(this);
 		return rootView;
+	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		mScaleGestureDetector.onTouchEvent(event);
+		return true;
+	}
+
+	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+		private float mScale = 1f;
+
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			mScale *= detector.getScaleFactor();
+			mScale = Math.max(0.1f, Math.min(mScale, 5.0f));
+			mMatrix.setScale(mScale, mScale);
+			System.out.println("mMatrix = " + mMatrix);
+			imageView.setImageMatrix(mMatrix);
+			return true;
+		}
 	}
 }

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import com.alpargabos.tuda.R;
 import com.alpargabos.tuda.moments.ImportantMoment;
 import com.alpargabos.tuda.moments.MomentsAdapter;
@@ -20,6 +22,11 @@ public class MomentsDetailActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Window w = getWindow();
+		w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+		w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
 		setContentView(R.layout.activity_moments_detail);
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
